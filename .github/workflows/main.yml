@@ -1,0 +1,60 @@
+name: Deploy Gold Price Page
+
+on:
+  # 手动触发
+  workflow_dispatch:
+  # 每日定时（UTC 01:00 ≈ 北京时间 09:00）
+  schedule:
+    - cron: "0 1 * * *"
+  # 相关文件变更时触发
+  push:
+    branches: [main, master]
+    paths:
+      - "py/gold/generate_gold_page.py"
+      - "html/gold/template.html"
+      - ".github/workflows/gold-pages.yml"
+
+# GitHub Pages 部署所需权限
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 避免并发部署互相取消，但允许排队
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Generate gold price page
+        run: python py/gold/generate_gold_page.py
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # 仅发布金价页面目录，入口为 index.html
+          path: html/gold
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

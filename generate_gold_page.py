@@ -22,7 +22,7 @@ import requests
 # 路径与常量
 # =============================================================================
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-OUT_DIR = os.path.normpath(os.path.join(BASE_DIR, "..", "..", "html"))
+OUT_DIR = os.path.normpath(os.path.join(BASE_DIR, "..", "html"))
 TEMPLATE_PATH = os.path.join(OUT_DIR, "template.html")
 DATA_PATH = os.path.join(OUT_DIR, "gold_data.json")
 INDEX_PATH = os.path.join(OUT_DIR, "index.html")

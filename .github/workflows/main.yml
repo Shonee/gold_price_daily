@@ -12,7 +12,7 @@ on:
     paths:
       - "./generate_gold_page.py"
       - "html/template.html"
-      - ".github/workflows/gold-pages.yml"
+      - ".github/workflows/main.yml"
 
 # GitHub Pages 部署所需权限
 permissions:

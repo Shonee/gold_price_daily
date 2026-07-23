@@ -22,12 +22,12 @@ import requests
 # 路径与常量
 # =============================================================================
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-OUT_DIR = os.path.normpath(os.path.join(BASE_DIR, "..", "html"))
+OUT_DIR = os.path.normpath(os.path.join(BASE_DIR, "html"))
 TEMPLATE_PATH = os.path.join(OUT_DIR, "template.html")
 DATA_PATH = os.path.join(OUT_DIR, "gold_data.json")
 INDEX_PATH = os.path.join(OUT_DIR, "index.html")
 # 仓库根 README（展示金价数据）
-README_PATH = os.path.normpath(os.path.join(BASE_DIR, "..", "..", "README.md"))
+README_PATH = os.path.normpath(os.path.join(BASE_DIR, "README.md"))
 
 HISTORY_DAYS = 30  # 走势图历史保留天数
 

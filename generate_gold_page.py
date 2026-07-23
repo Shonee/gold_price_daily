@@ -14,7 +14,7 @@
 import json
 import os
 import re
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 
 import requests
 
@@ -480,9 +480,10 @@ def main():
     store = load_store()
     store = update_history(store, brand_rows, quote_groups)
 
+    now_cst = datetime.now(timezone(timedelta(hours=8)))
     gold_data = {
-        "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        "date": datetime.now().strftime("%Y-%m-%d"),
+        "generated_at": now_cst.strftime("%Y-%m-%d %H:%M:%S") + " (北京时间)",
+        "date": now_cst.strftime("%Y-%m-%d"),
         "brands": {"items": brand_rows, "more_url": BRAND_MORE_URL},
         "quote_groups": quote_groups,
         "trend": build_trend(store),

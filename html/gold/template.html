@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今日金价 - 黄金价格查询</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    background: #f5f5f5; color: #333; font-size: 14px; line-height: 1.6;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 16px; }
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    background: #fff; border: 1px solid #eee; border-radius: 6px;
+    padding: 10px 18px; margin-bottom: 16px;
+  }
+  .crumb { color: #888; font-size: 13px; }
+  .topbar .right { display: flex; align-items: center; gap: 14px; color: #888; font-size: 13px; }
+  .btn-refresh {
+    background: #f0b90b; color: #fff; border: none; border-radius: 4px;
+    padding: 6px 16px; cursor: pointer; font-size: 13px;
+  }
+  .btn-refresh:hover { background: #e0aa00; }
+  .hero { text-align: center; padding: 20px 0 6px; }
+  .hero .bar { font-size: 56px; line-height: 1; }
+  .hero h1 { font-size: 26px; color: #333; margin-top: 6px; font-weight: 700; }
+  .card {
+    background: #fff; border: 1px solid #eaeaea; border-radius: 8px;
+    padding: 6px; margin-bottom: 18px; overflow: hidden;
+  }
+  .card-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 14px 8px; border-bottom: 2px solid #d4380d;
+  }
+  .card-head h2 { font-size: 16px; color: #333; font-weight: 700; }
+  .more { color: #1677ff; font-size: 13px; }
+  .more:hover { text-decoration: underline; }
+  table { width: 100%; border-collapse: collapse; }
+  thead th {
+    background: #fafafa; color: #666; font-weight: 600; text-align: center;
+    padding: 12px 6px; border-bottom: 1px solid #eee; font-size: 13px; white-space: nowrap;
+  }
+  thead th .unit { color: #aaa; font-weight: 400; font-size: 12px; }
+  tbody td {
+    text-align: center; padding: 13px 6px; border-bottom: 1px solid #f0f0f0;
+    color: #444; font-size: 13px; white-space: nowrap;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: #fcfcf6; }
+  .name-link { color: #1677ff; font-weight: 600; }
+  .name-link:hover { text-decoration: underline; }
+  .name-unit { color: #bbb; font-weight: 400; font-size: 11px; margin-left: 3px; }
+  .last { font-weight: 700; }
+  .convert { display: block; color: #999; font-size: 11px; font-weight: 400; }
+  .up { color: #d4380d; }     /* 涨：红 */
+  .down { color: #2a9d3f; }   /* 跌：绿 */
+  .brand-name { font-weight: 600; }
+  .price { color: #d4380d; font-weight: 700; font-size: 15px; }
+  .time { color: #999; font-size: 12px; }
+  .section-title { text-align: center; font-size: 18px; font-weight: 700; color: #333; padding: 16px 0 4px; }
+  #trend { width: 100%; height: 420px; }
+  .tabs { display: flex; gap: 4px; border-bottom: 1px solid #eee; padding: 8px 12px 0; flex-wrap: wrap; }
+  .tab { padding: 8px 16px; cursor: pointer; color: #666; font-size: 14px; border-bottom: 2px solid transparent; }
+  .tab.active { color: #1677ff; border-bottom-color: #1677ff; font-weight: 600; }
+  .chart-imgs { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; padding: 18px 12px; }
+  .chart-imgs figure { text-align: center; }
+  .chart-imgs figcaption { color: #888; font-size: 13px; margin-bottom: 6px; }
+  .chart-imgs img { border: 1px solid #eee; background: #fff; max-width: 100%; }
+  .foot { text-align: center; color: #aaa; font-size: 12px; padding: 10px 0 24px; }
+  .empty { color: #bbb; }
+  @media (max-width: 720px) {
+    .hide-sm { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="crumb"><a href="#">首页</a> &nbsp;&gt;&nbsp; 黄金价格查询</div>
+    <div class="right">
+      <span id="genTime"></span>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="bar">🪙</div>
+    <h1>今日金价</h1>
+  </div>
+
+  <!-- 品牌金店价 -->
+  <div class="card">
+    <div class="card-head">
+      <h2>品牌金店金价</h2>
+      <a class="more" id="brandMore" target="_blank" rel="noopener">更多 &gt;&gt;</a>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:30%">金店名称</th>
+          <th>黄金零售价 <span class="unit">(元/克)</span></th>
+          <th>黄金换购价 <span class="unit">(元/克)</span></th>
+          <th style="width:24%">更新时间</th>
+        </tr>
+      </thead>
+      <tbody id="brandBody"></tbody>
+    </table>
+  </div>
+
+  <!-- 行情分组（国际 / 上海金交所 / 上海期货 / 其他），由脚本动态渲染 -->
+  <div id="quoteGroups"></div>
+
+  <!-- 近期走势图 -->
+  <div class="card">
+    <div class="section-title">近期黄金价格走势图</div>
+    <div id="trend"></div>
+    <div id="trendEmpty" class="foot" style="display:none">暂无历史数据，脚本多次运行后自动生成走势</div>
+  </div>
+
+  <!-- 国际实时行情图 -->
+  <div class="card">
+    <div class="card-head">
+      <h2>国际实时行情图</h2>
+      <button class="btn-refresh" id="refreshBtn">刷新实时图</button>
+    </div>
+    <div class="tabs" id="tabs"></div>
+    <div class="chart-imgs" id="chartImgs"></div>
+  </div>
+
+  <div class="foot" id="footTime"></div>
+</div>
+
+<script>
+  // 数据由 Python 脚本在生成时注入
+  window.GOLD_DATA = /*__GOLD_DATA__*/;
+
+  var D = window.GOLD_DATA || {};
+  var NA = '<span class="empty">-</span>';
+
+  function fmt(v) { return (v === null || v === undefined || v === '') ? NA : v; }
+  function num(v) { return (v === null || v === undefined) ? NA : v; }
+
+  // ---- 品牌表 ----
+  function renderBrands() {
+    var brands = (D.brands && D.brands.items) || [];
+    var moreEl = document.getElementById('brandMore');
+    if (moreEl) moreEl.href = (D.brands && D.brands.more_url) || '#';
+    var html = brands.map(function (r) {
+      var nameCell = r.url
+        ? '<a class="name-link" href="' + r.url + '" target="_blank" rel="noopener">' + r.brand + '</a>'
+        : '<span class="brand-name">' + r.brand + '</span>';
+      return '<tr>' +
+        '<td>' + nameCell + '</td>' +
+        '<td class="price">' + num(r.retail) + '</td>' +
+        '<td>' + fmt(r.buyback) + '</td>' +
+        '<td class="time">' + fmt(r.update_time) + '</td>' +
+        '</tr>';
+    }).join('');
+    document.getElementById('brandBody').innerHTML = html;
+  }
+
+  // ---- 行情分组宽表格 ----
+  function changeCell(r) {
+    if (r.change === null || r.change === undefined) return NA;
+    var cls = r.up ? 'up' : 'down';
+    var arrow = r.up ? '↑' : '↓';
+    var pct = (r.change_pct === null || r.change_pct === undefined) ? '' :
+      ' <span style="font-size:11px">(' + r.change_pct + '%)</span>';
+    return '<span class="' + cls + '">' + r.change + ' ' + arrow + pct + '</span>';
+  }
+
+  function lastCell(r) {
+    if (r.last === null || r.last === undefined) return NA;
+    var cls = r.up ? 'up' : 'down';
+    var conv = (r.convert_cny === null || r.convert_cny === undefined) ? '' :
+      '<span class="convert">≈' + r.convert_cny + ' 元/克</span>';
+    return '<span class="last ' + cls + '">' + r.last + '</span>' + conv;
+  }
+
+  function renderQuoteGroups() {
+    var groups = D.quote_groups || [];
+    var host = document.getElementById('quoteGroups');
+    host.innerHTML = groups.map(function (g) {
+      var rows = g.items.map(function (r) {
+        var nameCell = r.url
+          ? '<a class="name-link" href="' + r.url + '" target="_blank" rel="noopener">' + r.name + '</a>'
+          : '<span class="name-link">' + r.name + '</span>';
+        nameCell += '<span class="name-unit">' + (r.unit || '') + '</span>';
+        return '<tr>' +
+          '<td style="text-align:left;padding-left:14px">' + nameCell + '</td>' +
+          '<td>' + lastCell(r) + '</td>' +
+          '<td>' + changeCell(r) + '</td>' +
+          '<td class="hide-sm">' + num(r.open) + '</td>' +
+          '<td class="hide-sm">' + num(r.prev_close) + '</td>' +
+          '<td class="hide-sm">' + num(r.bid) + '</td>' +
+          '<td class="hide-sm">' + num(r.ask) + '</td>' +
+          '<td>' + num(r.high) + '</td>' +
+          '<td>' + num(r.low) + '</td>' +
+          '<td class="time">' + fmt(r.update_time) + '</td>' +
+          '</tr>';
+      }).join('');
+      var more = g.more_url
+        ? '<a class="more" href="' + g.more_url + '" target="_blank" rel="noopener">更多 &gt;&gt;</a>' : '';
+      return '<div class="card">' +
+        '<div class="card-head"><h2>' + g.title + '</h2>' + more + '</div>' +
+        '<table><thead><tr>' +
+        '<th style="text-align:left;padding-left:14px;width:20%">名称</th>' +
+        '<th>最新价</th><th>涨跌</th>' +
+        '<th class="hide-sm">开盘价</th><th class="hide-sm">昨收价</th>' +
+        '<th class="hide-sm">买价</th><th class="hide-sm">卖价</th>' +
+        '<th>最高价</th><th>最低价</th><th style="width:16%">报价时间</th>' +
+        '</tr></thead><tbody>' + rows + '</tbody></table></div>';
+    }).join('');
+  }
+
+  // ---- 走势折线图 ----
+  function renderTrend() {
+    var trend = D.trend || { dates: [], series: [] };
+    var el = document.getElementById('trend');
+    if (!trend.series || !trend.series.length) {
+      el.style.display = 'none';
+      document.getElementById('trendEmpty').style.display = 'block';
+      return;
+    }
+    var chart = echarts.init(el);
+    chart.setOption({
+      tooltip: { trigger: 'axis' },
+      legend: { data: trend.series.map(function (s) { return s.name; }), top: 6 },
+      grid: { left: 55, right: 30, top: 50, bottom: 40 },
+      xAxis: { type: 'category', boundaryGap: false, data: trend.dates },
+      yAxis: { type: 'value', scale: true, name: '售价(元)' },
+      series: trend.series.map(function (s) {
+        return { name: s.name, type: 'line', smooth: true, connectNulls: true, symbolSize: 6, data: s.data };
+      })
+    });
+    window.addEventListener('resize', function () { chart.resize(); });
+  }
+
+  // ---- 国际实时图 Tab ----
+  function renderCharts() {
+    var charts = D.charts || [];
+    var tabs = document.getElementById('tabs');
+    var box = document.getElementById('chartImgs');
+    tabs.innerHTML = charts.map(function (c, i) {
+      return '<div class="tab' + (i === 0 ? ' active' : '') + '" data-i="' + i + '">' + c.label + '</div>';
+    }).join('');
+
+    function show(i) {
+      var c = charts[i];
+      if (!c) { box.innerHTML = ''; return; }
+      var bust = '&_t=' + Date.now();
+      box.innerHTML =
+        '<figure><figcaption>分时图</figcaption>' +
+        '<img src="' + c.intraday + bust + '" alt="' + c.label + '分时图" ' +
+        'onerror="this.style.opacity=0.3;this.alt=\'图片加载失败\'"></figure>' +
+        '<figure><figcaption>K线图</figcaption>' +
+        '<img src="' + c.kline + bust + '" alt="' + c.label + 'K线图" ' +
+        'onerror="this.style.opacity=0.3;this.alt=\'图片加载失败\'"></figure>';
+    }
+
+    tabs.querySelectorAll('.tab').forEach(function (t) {
+      t.addEventListener('click', function () {
+        tabs.querySelectorAll('.tab').forEach(function (x) { x.classList.remove('active'); });
+        t.classList.add('active');
+        show(parseInt(t.getAttribute('data-i'), 10));
+      });
+    });
+    show(0);
+    return show;
+  }
+
+  // ---- 初始化 ----
+  document.getElementById('genTime').textContent = '数据更新：' + (D.generated_at || D.date || '');
+  document.getElementById('footTime').textContent =
+    '数据最后更新：' + (D.generated_at || '-') + '（价格表刷新请重新运行生成脚本）';
+  renderBrands();
+  renderQuoteGroups();
+  renderTrend();
+  var reShow = renderCharts();
+
+  document.getElementById('refreshBtn').addEventListener('click', function () {
+    var active = document.querySelector('.tab.active');
+    if (active && reShow) reShow(parseInt(active.getAttribute('data-i'), 10));
+  });
+</script>
+</body>
+</html>

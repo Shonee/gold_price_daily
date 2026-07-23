@@ -10,8 +10,8 @@ on:
   push:
     branches: [main, master]
     paths:
-      - "py/gold/generate_gold_page.py"
-      - "html/gold/template.html"
+      - "generate_gold_page.py"
+      - "html/template.html"
       - ".github/workflows/gold-pages.yml"
 
 # GitHub Pages 部署所需权限
@@ -44,7 +44,7 @@ jobs:
         run: pip install requests
 
       - name: Generate gold price page
-        run: python py/gold/generate_gold_page.py
+        run: python generate_gold_page.py
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

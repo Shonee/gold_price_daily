@@ -1,6 +1,6 @@
 # 🥇 今日金价 Daily Gold Price
 
-> 数据更新时间：**2026-10-06 09:21:42 (北京时间)** （由 GitHub Action 定时自动生成）
+> 数据更新时间：**2026-10-07 09:25:42 (北京时间)** （由 GitHub Action 定时自动生成）
 
 数据来源：新浪财经 · 金价网 · 金投网 · 大水贝 · 雅虎财经 · 东方财富（仅供参考，不构成投资建议）
 
@@ -13,17 +13,17 @@
 | [菜百首饰](https://cngoldprice.com/brand/cb/today-gold-price) | 1248.0 | 2026-10-06 |
 | [金至尊](https://cngoldprice.com/brand/3dgold/today-gold-price) | 1246.0 | 2026-10-06 |
 | [老凤祥](https://cngoldprice.com/brand/lao-feng-xiang/today-gold-price) | 1251.0 | 2026-10-06 |
-| [周生生](https://cngoldprice.com/brand/chow-sang-sang/today-gold-price) | 1252.0 | 2026-10-06 |
-| [老庙黄金](https://cngoldprice.com/brand/lao-miao-gold/today-gold-price) | 1255.0 | 2026-10-06 |
+| [周生生](https://cngoldprice.com/brand/chow-sang-sang/today-gold-price) | 1247.0 | 2026-10-06 |
+| [老庙黄金](https://cngoldprice.com/brand/lao-miao-gold/today-gold-price) | 1249.0 | 2026-10-06 |
 | [中国黄金](https://cngoldprice.com/brand/china-gold/today-gold-price) | 1236.0 | 2026-10-06 |
-| [水贝黄金](https://m.cngold.org/quote/gjs/swhj_shuibei.html) | 907.61 | 2026-10-06 |
+| [水贝黄金](https://m.cngold.org/quote/gjs/swhj_shuibei.html) | 1057.0 | 2026-10-07 |
 
 ## 国际金价（[更多](https://www.cngold.org/quote/)）
 
 | 名称 | 最新价 | 涨跌 | 开盘 | 昨收 | 买价 | 卖价 | 最高 | 最低 | 报价时间 |
 | :-- | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
-| [现货黄金](https://hk.finance.yahoo.com/quote/GC%3DF/) <sub>美元/盎司</sub> | 4140.12<br><sub>≈892.49元/克</sub> | -0.16 🔻 (-0.0%) | 4141.69 | 4140.28 | 4140.12 | 4140.47 | 4152.15 | 4133.03 | 2026-10-06 09:21:00 |
-| [现货白银](https://hk.finance.yahoo.com/quote/SI%3DF/) <sub>美元/盎司</sub> | 60.88<br><sub>≈13.12元/克</sub> | -0.16 🔻 (-0.26%) | 61.03 | 61.04 | 60.88 | 60.93 | 61.19 | 60.84 | 2026-10-06 09:21:00 |
+| [现货黄金](https://hk.finance.yahoo.com/quote/GC%3DF/) <sub>美元/盎司</sub> | 4150.56<br><sub>≈894.74元/克</sub> | -13.22 🔻 (-0.32%) | 4166.99 | 4163.78 | 4150.56 | 4150.91 | 4169.79 | 4149.72 | 2026-10-07 09:25:00 |
+| [现货白银](https://hk.finance.yahoo.com/quote/SI%3DF/) <sub>美元/盎司</sub> | 61.12<br><sub>≈13.18元/克</sub> | -0.21 🔻 (-0.34%) | 61.38 | 61.33 | 61.12 | 61.17 | 61.47 | 61.12 | 2026-10-07 09:25:00 |
 
 ## 上海黄金交易所行情（[更多](https://www.cngold.org/img_date/shangjiaosuo.html)）
 
@@ -47,27 +47,27 @@
 
 **国际金价**
 
-![国际金价](https://webquotepic.eastmoney.com/GetPic.aspx?nid=122.XAU&imageType=r&type=&unitWidth=-6&ef=&formatType=&AT=1&_d=2026-10-06)
+![国际金价](https://webquotepic.eastmoney.com/GetPic.aspx?nid=122.XAU&imageType=r&type=&unitWidth=-6&ef=&formatType=&AT=1&_d=2026-10-07)
 
 **国际银价**
 
-![国际银价](https://webquotepic.eastmoney.com/GetPic.aspx?nid=122.XAG&imageType=r&type=&unitWidth=-6&ef=&formatType=&AT=1&_d=2026-10-06)
+![国际银价](https://webquotepic.eastmoney.com/GetPic.aspx?nid=122.XAG&imageType=r&type=&unitWidth=-6&ef=&formatType=&AT=1&_d=2026-10-07)
 
 **上海金**
 
-![上海金](https://webquotepic.eastmoney.com/GetPic.aspx?nid=118.AU9999&imageType=r&type=&unitWidth=-6&ef=&formatType=&AT=1&_d=2026-10-06)
+![上海金](https://webquotepic.eastmoney.com/GetPic.aspx?nid=118.AU9999&imageType=r&type=&unitWidth=-6&ef=&formatType=&AT=1&_d=2026-10-07)
 
 **上海银**
 
-![上海银](https://webquotepic.eastmoney.com/GetPic.aspx?nid=118.AG9999&imageType=r&type=&unitWidth=-6&ef=&formatType=&AT=1&_d=2026-10-06)
+![上海银](https://webquotepic.eastmoney.com/GetPic.aspx?nid=118.AG9999&imageType=r&type=&unitWidth=-6&ef=&formatType=&AT=1&_d=2026-10-07)
 
 **COMEX黄金**
 
-![COMEX黄金](https://webquotepic.eastmoney.com/GetPic.aspx?nid=113.GC00Y&imageType=r&type=&unitWidth=-6&ef=&formatType=&AT=1&_d=2026-10-06)
+![COMEX黄金](https://webquotepic.eastmoney.com/GetPic.aspx?nid=113.GC00Y&imageType=r&type=&unitWidth=-6&ef=&formatType=&AT=1&_d=2026-10-07)
 
 **COMEX白银**
 
-![COMEX白银](https://webquotepic.eastmoney.com/GetPic.aspx?nid=113.SI00Y&imageType=r&type=&unitWidth=-6&ef=&formatType=&AT=1&_d=2026-10-06)
+![COMEX白银](https://webquotepic.eastmoney.com/GetPic.aspx?nid=113.SI00Y&imageType=r&type=&unitWidth=-6&ef=&formatType=&AT=1&_d=2026-10-07)
 
 ---
 

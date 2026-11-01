@@ -1,6 +1,6 @@
 # 🥇 今日金价 Daily Gold Price
 
-> 数据更新时间：**2026-10-31 09:01:44 (北京时间)** （由 GitHub Action 定时自动生成）
+> 数据更新时间：**2026-11-01 14:59:01 (北京时间)** （由 GitHub Action 定时自动生成）
 
 数据来源：新浪财经 · 金价网 · 金投网 · 大水贝 · 雅虎财经 · 东方财富（仅供参考，不构成投资建议）
 
@@ -8,15 +8,15 @@
 
 | 金店名称 | 黄金零售价 | 更新时间 |
 | :-- | :--: | :--: |
-| [周大福](https://cngoldprice.com/brand/chow-tai-fook/today-gold-price) | 1199.0 | 2026-10-31 |
-| [六福珠宝](https://cngoldprice.com/brand/luk-fook/today-gold-price) | 1196.0 | 2026-10-31 |
-| [菜百首饰](https://cngoldprice.com/brand/cb/today-gold-price) | 1202.0 | 2026-10-31 |
-| [金至尊](https://cngoldprice.com/brand/3dgold/today-gold-price) | 1196.0 | 2026-10-31 |
-| [老凤祥](https://cngoldprice.com/brand/lao-feng-xiang/today-gold-price) | 1200.0 | 2026-10-31 |
-| [周生生](https://cngoldprice.com/brand/chow-sang-sang/today-gold-price) | 1203.0 | 2026-10-31 |
-| [老庙黄金](https://cngoldprice.com/brand/lao-miao-gold/today-gold-price) | 1196.0 | 2026-10-31 |
-| [中国黄金](https://cngoldprice.com/brand/china-gold/today-gold-price) | 1175.0 | 2026-10-31 |
-| [水贝黄金](https://m.cngold.org/quote/gjs/swhj_shuibei.html) | 833.0 | 2026-10-31 |
+| [周大福](https://cngoldprice.com/brand/chow-tai-fook/today-gold-price) | 1168.0 | 2026-10-31 |
+| [六福珠宝](https://cngoldprice.com/brand/luk-fook/today-gold-price) | 1162.0 | 2026-10-31 |
+| [菜百首饰](https://cngoldprice.com/brand/cb/today-gold-price) | 1165.0 | 2026-10-31 |
+| [金至尊](https://cngoldprice.com/brand/3dgold/today-gold-price) | 1162.0 | 2026-10-31 |
+| [老凤祥](https://cngoldprice.com/brand/lao-feng-xiang/today-gold-price) | 1165.0 | 2026-10-31 |
+| [周生生](https://cngoldprice.com/brand/chow-sang-sang/today-gold-price) | 1161.0 | 2026-10-31 |
+| [老庙黄金](https://cngoldprice.com/brand/lao-miao-gold/today-gold-price) | 1165.0 | 2026-10-31 |
+| [中国黄金](https://cngoldprice.com/brand/china-gold/today-gold-price) | 1151.0 | 2026-10-31 |
+| [水贝黄金](https://m.cngold.org/quote/gjs/swhj_shuibei.html) | 833.0 | 2026-11-01 |
 
 ## 国际金价（[更多](https://www.cngold.org/quote/)）
 
@@ -47,27 +47,27 @@
 
 **国际金价**
 
-![国际金价](https://webquotepic.eastmoney.com/GetPic.aspx?nid=122.XAU&imageType=r&type=&unitWidth=-6&ef=&formatType=&AT=1&_d=2026-10-31)
+![国际金价](https://webquotepic.eastmoney.com/GetPic.aspx?nid=122.XAU&imageType=r&type=&unitWidth=-6&ef=&formatType=&AT=1&_d=2026-11-01)
 
 **国际银价**
 
-![国际银价](https://webquotepic.eastmoney.com/GetPic.aspx?nid=122.XAG&imageType=r&type=&unitWidth=-6&ef=&formatType=&AT=1&_d=2026-10-31)
+![国际银价](https://webquotepic.eastmoney.com/GetPic.aspx?nid=122.XAG&imageType=r&type=&unitWidth=-6&ef=&formatType=&AT=1&_d=2026-11-01)
 
 **上海金**
 
-![上海金](https://webquotepic.eastmoney.com/GetPic.aspx?nid=118.AU9999&imageType=r&type=&unitWidth=-6&ef=&formatType=&AT=1&_d=2026-10-31)
+![上海金](https://webquotepic.eastmoney.com/GetPic.aspx?nid=118.AU9999&imageType=r&type=&unitWidth=-6&ef=&formatType=&AT=1&_d=2026-11-01)
 
 **上海银**
 
-![上海银](https://webquotepic.eastmoney.com/GetPic.aspx?nid=118.AG9999&imageType=r&type=&unitWidth=-6&ef=&formatType=&AT=1&_d=2026-10-31)
+![上海银](https://webquotepic.eastmoney.com/GetPic.aspx?nid=118.AG9999&imageType=r&type=&unitWidth=-6&ef=&formatType=&AT=1&_d=2026-11-01)
 
 **COMEX黄金**
 
-![COMEX黄金](https://webquotepic.eastmoney.com/GetPic.aspx?nid=113.GC00Y&imageType=r&type=&unitWidth=-6&ef=&formatType=&AT=1&_d=2026-10-31)
+![COMEX黄金](https://webquotepic.eastmoney.com/GetPic.aspx?nid=113.GC00Y&imageType=r&type=&unitWidth=-6&ef=&formatType=&AT=1&_d=2026-11-01)
 
 **COMEX白银**
 
-![COMEX白银](https://webquotepic.eastmoney.com/GetPic.aspx?nid=113.SI00Y&imageType=r&type=&unitWidth=-6&ef=&formatType=&AT=1&_d=2026-10-31)
+![COMEX白银](https://webquotepic.eastmoney.com/GetPic.aspx?nid=113.SI00Y&imageType=r&type=&unitWidth=-6&ef=&formatType=&AT=1&_d=2026-11-01)
 
 ---
 
